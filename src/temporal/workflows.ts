@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { proxyActivities, defineSignal, setHandler, sleep } from '@temporalio/workflow';
+import { SignalDefinition } from '@temporalio/common';
 import type * as activities from './activities';
 import { ApplicationFailure } from '@temporalio/workflow';
 import { Specification } from '@severlessworkflow/sdk-typescript';
 import * as _ from 'lodash';
 
-export const approveSignal = defineSignal('approve');
-export const rejectSignal = defineSignal('reject');
+export const approveSignal: SignalDefinition = defineSignal('approve');
+export const rejectSignal: SignalDefinition = defineSignal('reject');
 
 const { approveStatement, rejectStatement } = proxyActivities<typeof activities>({
   startToCloseTimeout: '1 minute',
