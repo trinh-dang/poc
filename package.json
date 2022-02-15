@@ -1,0 +1,63 @@
+{
+  "name": "swtemporal-typescript",
+  "private": true,
+  "scripts": {
+    "start:worker": "nodemon src/temporal/worker.ts",
+    "start:dev": "nest start --path tsconfig.server.json --watch",
+    "format": "prettier --write .",
+    "lint": "npm run lint",
+    "prepare": "husky install"
+  },
+  "nodemonConfig": {
+    "execMap": {
+      "ts": "ts-node"
+    },
+    "ext": "ts",
+    "watch": [
+      "src"
+    ]
+  },
+  "dependencies": {
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
+    "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/serve-static": "^2.2.2",
+    "@severlessworkflow/sdk-typescript": "^3.0.2",
+    "jexl": "^2.3.0",
+    "lodash": "^4.17.21",
+    "nanoid": "^3.2.0",
+    "nestjs-pino": "^2.5.0",
+    "pino-http": "^6.6.0",
+    "pino-pretty": "^7.5.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^7.2.0",
+    "temporalio": "0.17.x"
+  },
+  "devDependencies": {
+    "@temporalio/client": "^0.13.0",
+    "@nestjs/cli": "^8.2.0",
+    "@tsconfig/node16": "^1.0.0",
+    "@types/jexl": "^2.3.0",
+    "@types/lodash": "^4.14.178",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^12.0.3",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-deprecation": "^1.2.1",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.2.3",
+    "next": "^11.1.2",
+    "prettier": "^2.3.2",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.2.1",
+    "tsconfig-paths": "^3.10.1",
+    "typescript": "^4.4.2",
+    "zx": "^4.2.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,json,md}": "prettier --write",
+    "*.{js,ts}": "lerna run lint -- --fix --cache"
+  }
+}
