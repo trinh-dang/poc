@@ -5,17 +5,17 @@ tasks:
   - name: Run Worker
     init: |
       alias tctl="docker exec temporal-admin-tools tctl"
-      echo "tctl configured! try typing tctl -v" # can't run tctl directly from gitpod.yml
+      echo "tctl configured! try typing tctl -v"
       npm install
     command: |
-      sleep 30
+      sleep 40
       npm run start:worker
   - name: Run App
     init: |
       alias tctl="docker exec temporal-admin-tools tctl"
-      echo "tctl configured! try typing tctl -v" # can't run tctl directly from gitpod.yml
+      echo "tctl configured! try typing tctl -v"
     command: |
-      sleep 30
+      sleep 45
       npm run start:dev
       sleep 5
       gp preview http://localhost:8088 # open up Temporal Web to show new workflow
@@ -30,6 +30,9 @@ ports:
   - port: 7233 # temporal server
     onOpen: ignore
   - port: 8088 # temporal web
+    onOpen: ignore
+    visibility: public
+  - port: 8080 # temporal ui
     onOpen: ignore
     visibility: public
 # notes for future temporalite usage
