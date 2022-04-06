@@ -32,12 +32,12 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
-    "temporalio": "0.17.x"
+    "temporalio": "0.19.x"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.2.1",
     "@temporalio/client": "^0.13.0",
-    "@tsconfig/node16": "^1.0.0",
+    "@tsconfig/node16": "^1.0.2",
     "@types/jexl": "^2.3.0",
     "@types/lodash": "^4.14.178",
     "@typescript-eslint/eslint-plugin": "^5.0.0",

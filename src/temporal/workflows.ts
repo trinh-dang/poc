@@ -32,7 +32,7 @@ const getActivity = (state: string) => {
     case 'RejectStatement':
       return rejectStatement;
     default:
-      throw ApplicationFailure.nonRetryable(`${state} not supported`);
+      throw ApplicationFailure.nonRetryable(`${state} not supported`, 'failure');
   }
 };
 
@@ -81,7 +81,7 @@ export async function approvalWorkflow(args: { workflowDsl: Specification.Workfl
   }
 
   if (result === undefined) {
-    throw ApplicationFailure.nonRetryable(`no result outcome`);
+    throw ApplicationFailure.nonRetryable(`no result outcome`, 'failure');
   }
 
   return result;
